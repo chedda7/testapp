@@ -1,5 +1,5 @@
 FROM scratch
-ADD main
+ADD main main
 
 ENV TEST_ENV=testing
 ENV ANON_ENV=another
