@@ -1,3 +1,3 @@
 FROM scratch
-ADD "test"
+ADD test /
 CMD ["/test"]
