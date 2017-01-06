@@ -1,14 +1,23 @@
 package main
 
 import (
-	"fmt"
-	"os"
-	//"strings"
+    "fmt"
+    "io/ioutil"
+    "net/http"
+    "os"
 )
 
 func main() {
-	for _,e := range os.Environ() {
-		//pair := strings.Split(e, "=")
-		fmt.Println(e)
-	}
+    resp, err := http.Get("https://google.com")
+    check(err)
+    body, err := ioutil.ReadAll(resp.Body)
+    check(err)
+    fmt.Println(len(body))
+}
+
+func check(err error) {
+    if err != nil {
+        fmt.Println(err)
+        os.Exit(1)
+    }
 }
