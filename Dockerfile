@@ -1,7 +1,6 @@
-FROM scratch
-ADD main main
-
-ENV TEST_ENV=testing
-ENV ANON_ENV=another
-
-CMD ["/main"]
+FROM golang:latest
+RUN mkdir /app
+ADD . /app/
+WORKDIR /app
+RUN go build -o main .
+CMD ["/app/main"]
